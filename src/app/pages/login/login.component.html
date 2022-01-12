@@ -1,4 +1,33 @@
-<p>
-  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime earum quo suscipit quasi a
-  incidunt excepturi expedita dolore dolorem laudantium?
-</p>
+<div class="container">
+  <form [formGroup]="form" (submit)="submitLogin()">
+    <div class="card">
+      <h2 class="my-4">Logar</h2>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control mt-3"
+          placeholder="Endereço de e-mail"
+          formControlName="email" />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control my-2"
+          placeholder="Senha"
+          formControlName="password" />
+      </div>
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!form.valid">
+          Iniciar sessão
+        </button>
+      </div>
+
+      <small class="mt-4"
+        >Não tem uma conta?
+        <a [routerLink]="['/register']" class="text-primary text-decoration-none mt-3">
+          Cadastre-se
+        </a></small
+      >
+    </div>
+  </form>
+</div>

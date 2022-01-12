@@ -6,12 +6,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TabelaComponent } from './tabela/tabela.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { AuthGuard } from '../services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'tabela', component: TabelaComponent },
-  { path: 'formulario', component: FormularioComponent },
+  { path: 'tabela', component: TabelaComponent, canActivate: [AuthGuard] },
+  { path: 'formulario', component: FormularioComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

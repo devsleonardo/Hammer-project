@@ -1,1 +1,61 @@
-<p>register works!</p>
+<div class="container">
+  <form [formGroup]="form" (submit)="submitRegister()">
+    <div class="card">
+      <h2 class="mb-5">Cadastrar</h2>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Endereço de e-mail"
+          formControlName="email" />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control my-2"
+          placeholder="Nome completo"
+          formControlName="name" />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Endereço (opcional)"
+          formControlName="address" />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control my-2"
+          placeholder="Telefone (opcional)"
+          formControlName="phone" />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Senha"
+          formControlName="password" />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control mt-2"
+          placeholder="Confirmar senha"
+          formControlName="rePassword" />
+      </div>
+      <div class="mt-4">
+        <button class="btn btn-primary w-100" [disabled]="!form.valid">
+          Cadastrar usuário
+        </button>
+      </div>
+
+      <small class="mt-4"
+        >Já tem uma conta?
+        <a [routerLink]="['']" class="text-primary text-decoration-none mt-3">
+          Logar
+        </a></small
+      >
+    </div>
+  </form>
+</div>

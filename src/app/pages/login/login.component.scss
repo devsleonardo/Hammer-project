@@ -1,0 +1,25 @@
+@import '../../../styles/rem-calc.scss';
+
+:host {
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .card {
+    border-radius: rem-calc(10);
+    width: rem-calc(400);
+    text-align: center;
+    padding: rem-calc(30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > * {
+      width: 100%;
+    }
+  }
+}

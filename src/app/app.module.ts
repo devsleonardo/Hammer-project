@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { Interceptor } from './appInterception.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -13,8 +14,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { PagesModule } from './pages/pages.module';
 
 //Services
-import { ApiService } from './services/api.service';
-import { AuthGuard } from './services/auth-guard.service';
+
+import { AuthService } from './resources/services/auth.service';
+import { AuthGuard } from './resources/services/auth-guard.service';
+import { RegisterService } from './resources/services/register.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -26,8 +29,9 @@ import { AuthGuard } from './services/auth-guard.service';
     PagesModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    Interceptor,
   ],
-  providers: [ApiService, AuthGuard],
+  providers: [AuthGuard, AuthService, RegisterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

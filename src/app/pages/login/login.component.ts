@@ -4,7 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 //Service
-import { ApiService } from './../../services/api.service';
+
+import { AuthService } from 'src/app/resources/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,11 @@ import { ApiService } from './../../services/api.service';
 export class LoginComponent implements OnInit {
   public form = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+    senha: new FormControl(null, [Validators.required, Validators.minLength(8)]),
   });
 
   constructor(
-    private apiService: ApiService,
+    private authService: AuthService,
     private toastr: ToastrService,
     private router: Router
   ) {}
@@ -26,8 +27,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   public submitLogin(): void {
-    this.apiService.login(this.form.value.email, this.form.value.password).subscribe(
-      () => {
+    this.authService.login(this.form.value.email, this.form.value.senha).subscribe(
+      (res: any) => {
         this.router.navigate(['tabela']);
       },
       (error) => {

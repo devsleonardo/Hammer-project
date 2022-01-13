@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-tabela',
@@ -7,15 +6,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./tabela.component.scss'],
 })
 export class TabelaComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.update();
-  }
-
-  public update() {
-    this.apiService.tabela().subscribe((res) => {
-      console.log(res);
-    });
-  }
+  ngOnInit() {}
 }

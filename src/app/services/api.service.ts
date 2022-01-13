@@ -15,9 +15,8 @@ export class ApiService {
     return this.http.post<any>(`${environment.api}/login`, { email, senha }).pipe(
       switchMap((idToken: { token: string }) => {
         this.token_id = idToken.token;
-        console.log(this.token_id);
         localStorage.setItem('idToken', idToken.token); // Mander persistencia no browser
-        return of(idToken);
+        return of(this.token_id);
       })
     );
   }

@@ -8,9 +8,6 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class TabelaComponent implements OnInit {
   constructor(private apiService: ApiService) {}
-  columns: any = [];
-  data: any = [];
-  loading: any;
 
   ngOnInit() {
     this.update();

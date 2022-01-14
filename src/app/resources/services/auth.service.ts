@@ -3,9 +3,11 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Observable, of, switchMap } from 'rxjs';
 
-import { HttpClient } from '@angular/common/http';
-import { RequestLogin } from '../model/requestLogin';
-import { ResponseLogin } from './../model/responseLogin';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +16,12 @@ export class AuthService {
   public token_id: string;
   constructor(private http: HttpClient, private router: Router) {}
 
-  public login(requesteLogin: RequestLogin): Observable<ResponseLogin> {
-    return this.http.post<ResponseLogin>(`${environment.api}/login`, requesteLogin).pipe(
-      switchMap((idToken: any) => {
+  public login(email: string, senha: string): Observable<any> {
+    return this.http.post<any>(`${environment.api}/login`, { email, senha }).pipe(
+      switchMap((idToken: { token: string }) => {
         this.token_id = idToken.token;
         localStorage.setItem('idToken', idToken.token); // Mander persistencia no browser
-        return of(idToken.token);
+        return of(idToken);
       })
     );
   }
@@ -29,7 +31,7 @@ export class AuthService {
       this.token_id = localStorage.getItem('idToken');
     }
     if (this.token_id === undefined) {
-      this.router.navigate(['']);
+      this.router.navigate(['/']);
     }
     return this.token_id !== undefined;
   }
@@ -37,6 +39,6 @@ export class AuthService {
   public logout(): void {
     localStorage.removeItem('idToken');
     this.token_id = undefined;
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   }
 }

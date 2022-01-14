@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public submitLogin(): void {
+  submitLogin(): void {
     this.authService.login(this.form.value.email, this.form.value.senha).subscribe(
       (res: any) => {
         this.router.navigate(['tabela']);

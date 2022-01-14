@@ -13,6 +13,7 @@ import { TabelaComponent } from './tabela/tabela.component';
 import { FormularioComponent } from './formulario/formulario.component';
 
 //Interceptor
+import { HttpInterceptorProviders } from './inteceptor';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,6 @@ import { FormularioComponent } from './formulario/formulario.component';
     NavbarComponent,
   ],
   imports: [CommonModule, RoutingModule, ReactiveFormsModule, FormsModule],
-  providers: [],
+  providers: [HttpInterceptorProviders],
 })
 export class PagesModule {}

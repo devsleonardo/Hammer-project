@@ -9,12 +9,4 @@ export class ApiService {
   getTabela() {
     return this.http.get(`${environment.api}/tabela`);
   }
-
-  getForm() {
-    return this.http.get(`${environment.api}/formulario`);
-  }
-
-  postForm(info: any) {
-    return this.http.post(`${environment.api}/formulario`, info);
-  }
 }

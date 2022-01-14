@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   public submitLogin(): void {
     this.authService.login(this.form.value.email, this.form.value.senha).subscribe(
       (res: any) => {
-        console.log(res);
         this.router.navigate(['tabela']);
       },
       (error) => {

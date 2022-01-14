@@ -13,8 +13,6 @@ import { TabelaComponent } from './tabela/tabela.component';
 import { FormularioComponent } from './formulario/formulario.component';
 
 //Interceptor
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { idTokenInterceptor } from './inteceptor/idToken.Interceptor';
 
 @NgModule({
   declarations: [
@@ -25,6 +23,6 @@ import { idTokenInterceptor } from './inteceptor/idToken.Interceptor';
     NavbarComponent,
   ],
   imports: [CommonModule, RoutingModule, ReactiveFormsModule, FormsModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: idTokenInterceptor, multi: true }],
+  providers: [],
 })
 export class PagesModule {}

@@ -13,10 +13,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { PagesModule } from './pages/pages.module';
 
 //Services
-
 import { AuthService } from './resources/services/auth.service';
 import { AuthGuard } from './resources/services/auth-guard.service';
 import { RegisterService } from './resources/services/register.service';
+import { ApiService } from './resources/services/api.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +30,7 @@ import { RegisterService } from './resources/services/register.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [AuthGuard, AuthService, RegisterService],
+  providers: [AuthGuard, AuthService, RegisterService, ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

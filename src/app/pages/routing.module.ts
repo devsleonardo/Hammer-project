@@ -12,10 +12,11 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { AuthGuard } from '../resources/services/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'tabela', component: TabelaComponent, canActivate: [AuthGuard] },
   { path: 'formulario', component: FormularioComponent, canActivate: [AuthGuard] },
+  { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 
 @NgModule({

@@ -3,11 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Observable, of, switchMap } from 'rxjs';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +27,7 @@ export class AuthService {
       this.token_id = localStorage.getItem('idToken');
     }
     if (this.token_id === undefined) {
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     }
     return this.token_id !== undefined;
   }
@@ -39,6 +35,6 @@ export class AuthService {
   public logout(): void {
     localStorage.removeItem('idToken');
     this.token_id = undefined;
-    this.router.navigate(['/']);
+    this.router.navigate(['']);
   }
 }

@@ -7,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabela.component.scss'],
 })
 export class TabelaComponent implements OnInit {
-  public info: any;
+  public allItens: any;
+  public allColunas: any;
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {}
 
   infoTabela() {
     this.apiService.getTabela().subscribe((res) => {
-      this.info = res;
-      console.log(this.info);
+      this.allColunas = Object.keys(res[0]);
+      this.allItens = res;
     });
   }
 }

@@ -1,0 +1,17 @@
+@import '../../styles/rem-calc.scss';
+
+:host {
+  .container {
+    height: 100vh;
+    width: 100%;
+    padding: rem-calc(20);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    & > * {
+      width: 100%;
+      height: 80%;
+    }
+  }
+}

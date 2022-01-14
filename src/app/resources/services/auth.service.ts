@@ -8,17 +8,19 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  public token_id: string;
   constructor(private http: HttpClient, private router: Router) {}
 
   public login(email: string, senha: string): Observable<any> {
     return this.http.post<any>(`${environment.api}/login`, { email, senha }).pipe(
       switchMap((idToken: { token: string }) => {
         window.localStorage.setItem('idToken', idToken.token); // Mander persistencia no browser
-        this.token_id = idToken.token;
         return of(idToken);
       })
     );
+  }
+
+  get token_id() {
+    return localStorage.getItem('idToken');
   }
 
   public logout(): void {
@@ -33,9 +35,8 @@ export class AuthService {
 
   public authValidade(): boolean {
     if (this.token_id === undefined && localStorage.getItem('idToken') !== null) {
-      this.token_id = localStorage.getItem('idToken');
     }
-    if (this.token_id === undefined) {
+    if (!this.token_id) {
       this.router.navigate(['login']);
     }
     return this.token_id !== undefined;

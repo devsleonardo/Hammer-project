@@ -4,16 +4,19 @@ import { Observable, of, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
+//Model
+import { ModelLogin } from '../model/ModelLogin';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  public login(email: string, senha: string): Observable<any> {
-    return this.http.post<any>(`${environment.api}/login`, { email, senha }).pipe(
+  public login(user: ModelLogin): Observable<any> {
+    return this.http.post<any>(`${environment.api}/login`, user).pipe(
       switchMap((idToken: { token: string }) => {
-        window.localStorage.setItem('idToken', idToken.token); // Mander persistencia no browser
+        localStorage.setItem('idToken', idToken.token); // Mander persistencia no browser
         return of(idToken);
       })
     );
@@ -24,20 +27,17 @@ export class AuthService {
   }
 
   public logout(): void {
-    window.localStorage.removeItem('idToken');
+    localStorage.removeItem('idToken');
     this.router.navigate(['login']);
   }
 
   public getAuthorizationToken() {
-    const token = window.localStorage.getItem('idToken');
+    const token = localStorage.getItem('idToken');
     return token;
   }
 
   public authValidade(): boolean {
     if (this.token_id === undefined && localStorage.getItem('idToken') !== null) {
-    }
-    if (!this.token_id) {
-      this.router.navigate(['login']);
     }
     return this.token_id !== undefined;
   }

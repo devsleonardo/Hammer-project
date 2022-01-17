@@ -14,7 +14,7 @@ export class TabelaComponent implements OnInit {
 
   ngOnInit() {}
 
-  infoTabela() {
+  infoTabela(): void {
     this.apiService.getTabela().subscribe((res) => {
       this.allColunas = Object.keys(res[0]);
       this.allItens = res;

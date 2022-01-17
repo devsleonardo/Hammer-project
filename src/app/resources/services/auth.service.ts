@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 //Model
 import { ModelLogin } from '../model/modelLogin';
+import { ModelCadastro } from '../model/modelCadastro';
 
 @Injectable({
   providedIn: 'root',
@@ -40,5 +41,9 @@ export class AuthService {
     if (this.token_id === undefined && localStorage.getItem('idToken') !== null) {
     }
     return this.token_id !== undefined;
+  }
+
+  public register(requestCadastro: ModelCadastro): Observable<ModelCadastro> {
+    return this.http.post<ModelCadastro>(`${environment.api}/cadastro`, requestCadastro);
   }
 }

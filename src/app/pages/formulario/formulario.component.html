@@ -2,42 +2,42 @@
 
 <!---->
 <div class="container">
-  <div class="mx-3">
-    <button class="btn btn-primary my-5" type="button" (click)="infoFormulario()">
+  <div class="my-5">
+    <button class="btn btn-primary me-5" type="button" (click)="infoFormulario()">
       <i class="fa fa-refresh me-2"></i>
       Atualizar formulário
     </button>
-  </div>
-
-  <form
-    [formGroup]="form"
-    class="form-group my-2"
-    *ngFor="let itens of allItens; let data = index">
-    <div class="col-md-5" *ngIf="itens.tipo === 'TEXTO'">
-      <label class="form-label">{{ itens.titulo }}</label>
-      <input
-        [formControl]="form.controls[data]"
-        type="text"
-        class="form-control"
-        value="gfdgf" />
-    </div>
-
-    <div class="col-md-5" *ngIf="itens.tipo === 'NUMERICO'">
-      <label class="form-label">{{ itens.titulo }}</label>
-      <input [formControl]="form.controls[data]" type="number" class="form-control" />
-    </div>
-
-    <div class="col-md-5" *ngIf="itens.tipo === 'SELECAO'">
-      <label class="form-label">{{ itens.titulo }}</label>
-      <select [formControl]="form.controls[data]" class="form-select">
-        <option *ngFor="let opcoes of itens.opcoes">{{ opcoes }}</option>
-      </select>
-    </div>
-  </form>
-  <div class="mx-3 my-5">
-    <button class="btn btn-outline-primary mt-3" type="button" (click)="saveFormulario()">
+    <button class="btn btn-outline-primary" type="button" (click)="saveFormulario()">
       <i class="fa fa-floppy-o me-2"></i>
       Salvar formulário
     </button>
+  </div>
+
+  <div class="card p-5">
+    <form
+      [formGroup]="form"
+      class="form-group my-2"
+      *ngFor="let itens of allItens; let data = index">
+      <div class="col-md-5" *ngIf="itens.tipo === 'TEXTO'">
+        <label class="form-label">{{ itens.titulo }}</label>
+        <input
+          [formControl]="form.controls[data]"
+          type="text"
+          class="form-control"
+          value="gfdgf" />
+      </div>
+
+      <div class="col-md-5" *ngIf="itens.tipo === 'NUMERICO'">
+        <label class="form-label">{{ itens.titulo }}</label>
+        <input [formControl]="form.controls[data]" type="number" class="form-control" />
+      </div>
+
+      <div class="col-md-5" *ngIf="itens.tipo === 'SELECAO'">
+        <label class="form-label">{{ itens.titulo }}</label>
+        <select [formControl]="form.controls[data]" class="form-select">
+          <option *ngFor="let opcoes of itens.opcoes">{{ opcoes }}</option>
+        </select>
+      </div>
+    </form>
   </div>
 </div>

@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 //Service
 
-import { RegisterService } from '../../resources/services/register.service';
+import { AuthService } from '../../resources/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     reSenha: new FormControl(null, [Validators.required]),
   });
   constructor(
-    private registerService: RegisterService,
+    private authService: AuthService,
     private router: Router,
     private toastr: ToastrService
   ) {}
@@ -34,13 +34,20 @@ export class RegisterComponent implements OnInit {
       this.toastr.error('As senhas são diferentes');
       return;
     }
-    this.registerService.register(this.form.value).subscribe(
+    this.authService.register(this.form.value).subscribe(
       () => {
         this.toastr.success('Cadastro realizado com sucesso');
-        this.router.navigate(['']);
       },
       (error) => {
         this.toastr.error(error.error.message);
+      },
+      () => {
+        //Fazer o usuario logar automaticamente após 1seg
+        setTimeout(() => {
+          this.authService.login(this.form.value).subscribe(() => {
+            this.router.navigate(['tabela']);
+          });
+        }, 1000);
       }
     );
   }

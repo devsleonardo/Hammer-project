@@ -16,7 +16,6 @@ import { LoaderModule } from './resources/components/loader.module';
 //Services
 import { AuthService } from './resources/services/auth.service';
 import { AuthGuard } from './resources/services/auth-guard.service';
-import { RegisterService } from './resources/services/register.service';
 import { ApiService } from './resources/services/api.service';
 
 @NgModule({
@@ -32,7 +31,7 @@ import { ApiService } from './resources/services/api.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [AuthGuard, AuthService, RegisterService, ApiService],
+  providers: [AuthGuard, AuthService, ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

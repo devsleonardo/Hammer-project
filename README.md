@@ -7,9 +7,10 @@ Uma pequena aplicaçao de niveis
 - Tabela
 - Formulario
 
-## Imagem do projeto
+## Importante
 
-```
-Em contrução....
+- O projeto foi feito em parceria com a [Api - FrontEnd] (https://github.com/VitorIsaacSM/Frontend-test), será necessário executar o mesmo.
 
-```
+## Modelo da aplicação
+
+ <img src="https://github.com/devsleonardo/ProjectHammer/blob/main/ProjectHammer/src/assets/gif/home.gif" alt="Modelo da aplicação"/>

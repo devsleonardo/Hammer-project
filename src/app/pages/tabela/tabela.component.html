@@ -15,8 +15,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let i of allItens">
-          <th *ngFor="let c of allColunas" scope="row">{{ i[c] }}</th>
+        <tr *ngFor="let itens of allItens">
+          <th *ngFor="let c of allColunas" scope="row">{{ itens[c] }}</th>
         </tr>
       </tbody>
     </table>

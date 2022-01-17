@@ -1,6 +1,7 @@
 export interface ModelFormularioGet {
-  titulo: string;
-  tipo: string;
-  valor: string;
+  id: number;
   opcoes: string[];
+  tipo: string;
+  titulo: string;
+  valor: string;
 }

@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 //Modules
 import { PagesModule } from './pages/pages.module';
+import { LoaderModule } from './resources/components/loader.module';
 
 //Services
 import { AuthService } from './resources/services/auth.service';
@@ -27,6 +28,7 @@ import { ApiService } from './resources/services/api.service';
     AppRoutingModule,
     HttpClientModule,
     PagesModule,
+    LoaderModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],

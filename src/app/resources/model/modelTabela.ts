@@ -1,9 +1,9 @@
 export interface ModelTabela {
-  usuário: string;
-  paramêtro: number;
+  usuario: string;
+  parametro: number;
   tipoLinha: number;
-  transmissão: number;
-  sequenciaEnergética: number;
+  transmissao: number;
+  sequenciaEnergetica: number;
   produtividade: number;
   lucratividade: number;
   liquidez: number;

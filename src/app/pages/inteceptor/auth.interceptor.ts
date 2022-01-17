@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from 'src/app/resources/services/auth.service';
 import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
   HttpResponse,
-  HttpErrorResponse,
   HttpHeaderResponse,
   HttpProgressEvent,
   HttpUserEvent,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 
+//Services
+import { AuthService } from 'src/app/resources/services/auth.service';
+import { LoaderService } from './../../resources/components/loader.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private loaderService: LoaderService) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -40,7 +41,8 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     }
 
+    this.loaderService.show();
     //Retorno o request com o erro tratado
-    return next.handle(request);
+    return next.handle(request).pipe(finalize(() => this.loaderService.hide()));
   }
 }

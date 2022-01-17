@@ -7,6 +7,7 @@ import { ApiService } from 'src/app/resources/services/api.service';
 
 //Model
 import { ModelFormularioPost } from '../../resources/model/modelFormularioPost';
+import { ModelFormularioGet } from '../../resources/model/modelFormularioGet';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -14,14 +15,14 @@ import { ModelFormularioPost } from '../../resources/model/modelFormularioPost';
 })
 export class FormularioComponent implements OnInit {
   form: any = new FormArray([]);
-  allItens: any[] = [];
+  allItens: ModelFormularioGet[];
 
   constructor(private apiService: ApiService, private toastr: ToastrService) {}
 
   ngOnInit(): void {}
 
   infoFormulario(): void {
-    this.apiService.getFormulario().subscribe((res: any[]) => {
+    this.apiService.getFormulario().subscribe((res: ModelFormularioGet[]) => {
       res.forEach((i) => {
         this.allItens = res;
         this.form.push(new FormControl(i.valor, [Validators.required]));

@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
 //Model
-import { ModelLogin } from '../model/ModelLogin';
+import { ModelLogin } from '../model/modelLogin';
 
 @Injectable({
   providedIn: 'root',

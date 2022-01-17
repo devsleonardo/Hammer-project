@@ -1,6 +1,9 @@
 import { ApiService } from './../../resources/services/api.service';
 import { Component, OnInit } from '@angular/core';
 
+//Model
+import { ModelTabela } from '../../resources/model/modelTabela';
+
 @Component({
   selector: 'app-tabela',
   templateUrl: './tabela.component.html',
@@ -8,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabelaComponent implements OnInit {
   public allItens: any;
-  public allColunas: any;
+  public allColunas: string[];
 
   constructor(private apiService: ApiService) {}
 

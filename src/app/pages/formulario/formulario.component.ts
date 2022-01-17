@@ -30,7 +30,7 @@ export class FormularioComponent implements OnInit {
       res.forEach((i) => {
         this.allItens = res;
         this.form.push(new FormControl(i.valor, [Validators.required]));
-        //Pasando condição de valor por FormControl - Array
+        //Passando condição de valor por FormControl - Array
         //Paramentro em HTML para pegar diversos valores por um formControl(condição(input)) --- [formControl]="form.controls[data]
         //https://angular.io/api/forms/FormControl#_forEachChild
       });

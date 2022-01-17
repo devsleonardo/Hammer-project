@@ -13,4 +13,4 @@ Uma pequena aplicaçao de niveis
 
 ## Modelo da aplicação
 
- <img src="https://github.com/devsleonardo/ProjectHammer/blob/main/ProjectHammer/src/assets/gif/home.gif" alt="Modelo da aplicação"/>
+ <img src="https://github.com/devsleonardo/ProjectHammer/blob/main/src/assets/gif/home.gif" alt="Modelo da aplicação"/>

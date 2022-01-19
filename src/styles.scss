@@ -1,7 +1,8 @@
+@import './app//styles/reset.scss';
 @import './app/styles/rem-calc.scss';
-@import './app/styles/variables.scss';
-@import './app/styles/rem-calc.scss';
+@import './app/styles/color.scss';
 @import './app/styles/validator.scss';
+@import './app/styles/animation.scss';
 
 body {
   background: var(--light);

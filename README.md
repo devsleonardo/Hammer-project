@@ -9,7 +9,7 @@ Uma pequena aplicaçao de niveis
 
 ## Importante
 
-- O projeto foi feito em parceria com a [Api - FrontEnd] (https://github.com/VitorIsaacSM/Frontend-test), será necessário executar o mesmo.
+- O projeto foi feito em parceria com a [Api - FrontEnd](https://github.com/VitorIsaacSM/Frontend-test), será necessário executar o mesmo.
 
 ## Modelo da aplicação
 

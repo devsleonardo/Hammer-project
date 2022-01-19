@@ -14,29 +14,22 @@
   </div>
 
   <div class="card p-3">
-    <form
-      [formGroup]="form"
-      class="form-group my-2"
-      *ngFor="let itens of allItens; let data = index">
-      <div class="col-md-5" *ngIf="itens.tipo === 'TEXTO'">
-        <label class="form-label">{{ itens.titulo }}</label>
-        <input [formControl]="form.controls[data]" type="text" class="form-control" value="" />
+    <form [formGroup]="form" class="form-group my-2" *ngFor="let f of allItens; let i = index">
+      <div class="col-md-5" *ngIf="f.tipo === 'TEXTO'">
+        <label class="form-label">{{ f.titulo }}</label>
+        <input [formControl]="form.controls[i]" type="text" class="form-control" value="" />
       </div>
 
-      <div class="col-md-5" *ngIf="itens.tipo === 'NUMERICO'">
-        <label class="form-label">{{ itens.titulo }}</label>
-        <input
-          [formControl]="form.controls[data]"
-          type="number"
-          class="form-control"
-          value="" />
+      <div class="col-md-5" *ngIf="f.tipo === 'NUMERICO'">
+        <label class="form-label">{{ f.titulo }}</label>
+        <input [formControl]="form.controls[i]" type="number" class="form-control" value="" />
       </div>
 
-      <div class="col-md-5" *ngIf="itens.tipo === 'SELECAO'">
-        <label class="form-label">{{ itens.titulo }}</label>
-        <select [formControl]="form.controls[data]" class="form-select" required>
+      <div class="col-md-5" *ngIf="f.tipo === 'SELECAO'">
+        <label class="form-label">{{ f.titulo }}</label>
+        <select [formControl]="form.controls[i]" class="form-select" required>
           <option selected disabled value="">Selecione uma opção</option>
-          <option *ngFor="let opcoes of itens.opcoes">{{ opcoes }}</option>
+          <option *ngFor="let opcoes of f.opcoes">{{ opcoes }}</option>
         </select>
       </div>
     </form>

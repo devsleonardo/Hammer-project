@@ -23,12 +23,16 @@ export class FormularioComponent implements OnInit {
 
   infoFormulario(): void {
     this.apiService.getFormulario().subscribe((res: ModelFormularioGet[]) => {
-      res.forEach((i) => {
+      this.form = new FormArray([]);
+      //  Chamar para criar um novo array, Caso nao tenha ficara dando push infinitamente new FormArray
+      // https://angular.io/api/forms/FormArray#push
+      res.map((i) => {
         this.allItens = res;
         this.form.push(new FormControl(i.valor, [Validators.required]));
+        console.log(this.form.value);
         //Passando condição de valor por FormControl - Array
-        //Paramentro em HTML para pegar diversos valores por um formControl(condição(input)) --- [formControl]="form.controls[data]
-        //https://angular.io/api/forms/FormControl#_forEachChild
+        //Paramentro em HTML para pegar diversos valores por um formControl(condição(input))
+        // --- [formControl]="form.controls[data] --- let i = index"
       });
     });
   }

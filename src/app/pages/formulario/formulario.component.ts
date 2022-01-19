@@ -17,10 +17,6 @@ export class FormularioComponent implements OnInit {
   public form: any = new FormArray([]);
   public allItens: ModelFormularioGet[];
 
-  public formArray: any = new FormGroup({
-    valor: new FormControl('', Validators.required),
-  });
-
   constructor(private apiService: ApiService, private toastr: ToastrService) {}
 
   ngOnInit(): void {}

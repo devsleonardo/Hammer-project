@@ -25,7 +25,6 @@ export class AuthInterceptor implements HttpInterceptor {
     | HttpEvent<any>
     | HttpHeaderResponse
     | HttpProgressEvent
-    | HttpProgressEvent
     | HttpResponse<any>
     | HttpUserEvent<any>
   > {
